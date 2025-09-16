@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://368p57k2tkc4"]
+
+[ext_resource type="PackedScene" uid="uid://bntud7twsv0pf" path="res://scenes/objets/joueur.tscn" id="1_xv5en"]
+[ext_resource type="PackedScene" uid="uid://dtkmuqas7cswb" path="res://scenes/objets/volume.tscn" id="2_0xxps"]
+
+[node name="game" type="Node2D"]
+
+[node name="ciel" type="Polygon2D" parent="."]
+scale = Vector2(1, 0.45679)
+color = Color(0.38, 0.8835, 0.95, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+uv = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="sol" type="Polygon2D" parent="."]
+color = Color(0, 1, 0.316667, 1)
+polygon = PackedVector2Array(0, 296, 1152, 296, 1152, 648, 0, 648)
+
+[node name="volume" parent="." instance=ExtResource("2_0xxps")]
+position = Vector2(1064, 600)
+
+[node name="joueur" parent="." instance=ExtResource("1_xv5en")]
+position = Vector2(576, 400)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 325.0
+offset_bottom = 101.0
+text = "W ou Fléche haut : Monter
+S ou Flèche bas : Descendre
+
+M : Mettre en pause/continuer la musique"
+vertical_alignment = 3
