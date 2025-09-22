@@ -5,7 +5,7 @@ var temps
 func _ready() -> void:
 	$"../AudioStreamPlayer".play()
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("Mute"):
 		if audio_joue == true:
 			temps = $"../AudioStreamPlayer".get_playback_position()

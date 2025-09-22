@@ -1,31 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://368p57k2tkc4"]
+[gd_scene load_steps=9 format=3 uid="uid://368p57k2tkc4"]
 
 [ext_resource type="PackedScene" uid="uid://bntud7twsv0pf" path="res://scenes/objets/joueur.tscn" id="1_xv5en"]
-[ext_resource type="PackedScene" uid="uid://dtkmuqas7cswb" path="res://scenes/objets/volume.tscn" id="2_0xxps"]
+[ext_resource type="PackedScene" uid="uid://dce2q1d6u7ec" path="res://scenes/objets/ui_course.tscn" id="2_s6bqy"]
+[ext_resource type="Texture2D" uid="uid://dhtxrqsr46bl" path="res://assets/images/floor_mint.png" id="4_lxfqr"]
+[ext_resource type="PackedScene" uid="uid://ci40te88fd7uq" path="res://scenes/objets/but.tscn" id="4_yapeh"]
+[ext_resource type="PackedScene" uid="uid://cabfylvy3du7u" path="res://scenes/objets/epine.tscn" id="5_1v4ti"]
+[ext_resource type="PackedScene" uid="uid://cjtrykxram8m" path="res://scenes/objets/hors_piste.tscn" id="6_b0mvn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yapeh"]
+atlas = ExtResource("4_lxfqr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v4ti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yapeh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="game" type="Node2D"]
 
 [node name="ciel" type="Polygon2D" parent="."]
-scale = Vector2(1, 0.45679)
+scale = Vector2(10, 0.457)
 color = Color(0.38, 0.8835, 0.95, 1)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 uv = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 
 [node name="sol" type="Polygon2D" parent="."]
+scale = Vector2(10, 1)
 color = Color(0, 1, 0.316667, 1)
-polygon = PackedVector2Array(0, 296, 1152, 296, 1152, 648, 0, 648)
+polygon = PackedVector2Array(0, 296, 1064.02, 296, 1152, 296, 1152, 461.787, 1152, 648, 0, 648)
 
-[node name="volume" parent="." instance=ExtResource("2_0xxps")]
-position = Vector2(1064, 600)
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(5678.28, 584.235)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(5678, 328.095)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(5678.28, 520.175)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(5678.28, 392)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5678.28, 456.1)
+scale = Vector2(358.08, 2)
+sprite_frames = SubResource("SpriteFrames_1v4ti")
+
+[node name="HorsPiste" parent="." instance=ExtResource("6_b0mvn")]
+position = Vector2(1154, 360)
+scale = Vector2(10.8, 4)
+
+[node name="HorsPiste2" parent="." instance=ExtResource("6_b0mvn")]
+position = Vector2(1154, 552.24)
+scale = Vector2(10.8, 4)
+
+[node name="Epine" parent="." instance=ExtResource("5_1v4ti")]
+position = Vector2(1034, 755)
+
+[node name="But" parent="." instance=ExtResource("4_yapeh")]
+position = Vector2(11464.5, 472)
+scale = Vector2(3.46747, 5.49989)
 
 [node name="joueur" parent="." instance=ExtResource("1_xv5en")]
-position = Vector2(576, 400)
+position = Vector2(576, 415)
 
-[node name="Label" type="Label" parent="."]
-offset_right = 325.0
-offset_bottom = 101.0
-text = "W ou Fléche haut : Monter
-S ou Flèche bas : Descendre
-
-M : Mettre en pause/continuer la musique"
-vertical_alignment = 3
+[node name="UiCourse" parent="." instance=ExtResource("2_s6bqy")]

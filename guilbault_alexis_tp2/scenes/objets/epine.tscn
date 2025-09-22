@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cabfylvy3du7u"]
+
+[ext_resource type="Texture2D" uid="uid://demudcrntjx5c" path="res://assets/images/epine.png" id="1_spgan"]
+[ext_resource type="Script" uid="uid://cpxwbvdwbh8v5" path="res://scenes/objets/epine.gd" id="1_tcrvm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcrvm"]
+atlas = ExtResource("1_spgan")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1kbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcrvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Epine" type="Node2D"]
+script = ExtResource("1_tcrvm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_o1kbo")

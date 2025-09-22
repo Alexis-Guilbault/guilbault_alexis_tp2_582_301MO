@@ -52,3 +52,11 @@ frame_progress = 0.243418
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6i1r8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(10, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 11520
+limit_bottom = 648
+position_smoothing_enabled = true
