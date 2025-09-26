@@ -35,47 +35,220 @@ scale = Vector2(10, 1)
 color = Color(0, 1, 0.316667, 1)
 polygon = PackedVector2Array(0, 296, 1064.02, 296, 1152, 296, 1152, 461.787, 1152, 648, 0, 648)
 
-[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+[node name="plancher" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="plancher"]
 position = Vector2(5678.28, 584.235)
 scale = Vector2(358.08, 2)
 sprite_frames = SubResource("SpriteFrames_1v4ti")
 
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="plancher"]
 position = Vector2(5678, 328.095)
 scale = Vector2(358.08, 2)
 sprite_frames = SubResource("SpriteFrames_1v4ti")
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="plancher"]
 position = Vector2(5678.28, 520.175)
 scale = Vector2(358.08, 2)
 sprite_frames = SubResource("SpriteFrames_1v4ti")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="plancher"]
 position = Vector2(5678.28, 392)
 scale = Vector2(358.08, 2)
 sprite_frames = SubResource("SpriteFrames_1v4ti")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="plancher"]
 position = Vector2(5678.28, 456.1)
 scale = Vector2(358.08, 2)
 sprite_frames = SubResource("SpriteFrames_1v4ti")
 
-[node name="HorsPiste" parent="." instance=ExtResource("6_b0mvn")]
+[node name="horspistes" type="Node2D" parent="."]
+
+[node name="HorsPiste3" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(1737, 328.5)
+scale = Vector2(5, 2)
+
+[node name="HorsPiste4" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(1737, 520)
+scale = Vector2(5, 6)
+
+[node name="HorsPiste6" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(4932, 520)
+scale = Vector2(15, 6)
+
+[node name="HorsPiste5" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(3015, 394)
+scale = Vector2(50, 6)
+
+[node name="HorsPiste7" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(6699, 456)
+scale = Vector2(25, 6)
+
+[node name="HorsPiste8" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(8212, 552)
+scale = Vector2(25, 4)
+
+[node name="HorsPiste9" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(8995, 328)
+scale = Vector2(5, 2)
+
+[node name="HorsPiste10" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(8995, 456)
+scale = Vector2(5, 2)
+
+[node name="HorsPiste12" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(9799, 392)
+scale = Vector2(25, 6)
+
+[node name="HorsPiste13" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(10730, 522)
+scale = Vector2(25, 6)
+
+[node name="HorsPiste11" parent="horspistes" instance=ExtResource("6_b0mvn")]
+position = Vector2(8995, 584)
+scale = Vector2(5, 2)
+
+[node name="HorsPiste" parent="horspistes" instance=ExtResource("6_b0mvn")]
 position = Vector2(1154, 360)
-scale = Vector2(10.8, 4)
+scale = Vector2(10, 4)
 
-[node name="HorsPiste2" parent="." instance=ExtResource("6_b0mvn")]
+[node name="HorsPiste2" parent="horspistes" instance=ExtResource("6_b0mvn")]
 position = Vector2(1154, 552.24)
-scale = Vector2(10.8, 4)
-
-[node name="Epine" parent="." instance=ExtResource("5_1v4ti")]
-position = Vector2(1034, 755)
+scale = Vector2(10, 4)
 
 [node name="But" parent="." instance=ExtResource("4_yapeh")]
-position = Vector2(11464.5, 472)
-scale = Vector2(3.46747, 5.49989)
+position = Vector2(11466, 456)
+scale = Vector2(3.742, 4.99)
 
 [node name="joueur" parent="." instance=ExtResource("1_xv5en")]
 position = Vector2(576, 415)
+
+[node name="epines" type="Node2D" parent="."]
+
+[node name="Epine" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(3162, 579)
+
+[node name="Epine2" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4184, 579)
+
+[node name="Epine3" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4184, 517)
+
+[node name="Epine4" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4184, 452)
+
+[node name="Epine5" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4424, 325)
+
+[node name="Epine6" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4424, 453)
+
+[node name="Epine7" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4424, 580)
+
+[node name="Epine8" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(4907, 324)
+
+[node name="Epine9" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5544, 324)
+
+[node name="Epine10" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5550, 450)
+
+[node name="Epine11" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5554, 581)
+
+[node name="Epine20" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7340, 324)
+
+[node name="Epine21" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7346, 450)
+
+[node name="Epine22" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7350, 581)
+
+[node name="Epine12" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5745, 517)
+
+[node name="Epine13" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5743, 391)
+
+[node name="Epine14" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5902, 322)
+
+[node name="Epine15" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5906, 453)
+
+[node name="Epine16" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(5908, 582)
+
+[node name="Epine17" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(6077, 520)
+
+[node name="Epine18" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(6077, 389)
+
+[node name="Epine19" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(6554, 325)
+
+[node name="Epine23" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7569, 522)
+
+[node name="Epine24" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7744, 452)
+
+[node name="Epine25" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(7890, 320)
+
+[node name="Epine26" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8081, 389)
+
+[node name="Epine27" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8335, 452)
+
+[node name="Epine28" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8413, 392)
+
+[node name="Epine29" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8574, 326)
+
+[node name="Epine30" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(8582, 454)
+
+[node name="Epine31" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9210, 391)
+
+[node name="Epine32" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9218, 519)
+
+[node name="Epine33" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9452, 582)
+
+[node name="Epine34" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9683, 514)
+
+[node name="Epine35" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(9969, 582)
+
+[node name="Epine36" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(10772, 326)
+
+[node name="Epine42" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(10944, 390)
+
+[node name="Epine37" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(10395, 326)
+
+[node name="Epine38" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(10586, 391)
+
+[node name="Epine39" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(11227, 453)
+
+[node name="Epine41" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(11232, 579)
+
+[node name="Epine40" parent="epines" instance=ExtResource("5_1v4ti")]
+position = Vector2(11224, 325)
 
 [node name="UiCourse" parent="." instance=ExtResource("2_s6bqy")]

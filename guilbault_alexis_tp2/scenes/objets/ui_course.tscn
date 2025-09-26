@@ -15,6 +15,7 @@ grow_vertical = 2
 position = Vector2(1064, 600)
 
 [node name="instructions" type="Label" parent="."]
+layout_mode = 0
 offset_right = 325.0
 offset_bottom = 101.0
 text = "W ou Fléche haut : Monter
@@ -26,6 +27,7 @@ M : Mettre en pause/continuer la musique"
 vertical_alignment = 3
 
 [node name="temps" type="Label" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 622.0
 offset_right = 326.0

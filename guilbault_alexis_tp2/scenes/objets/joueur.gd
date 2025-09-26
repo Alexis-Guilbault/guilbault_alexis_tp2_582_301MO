@@ -7,7 +7,7 @@ var vspeed = 0
 var vgoal = 0
 
 var hspeed = 0
-var maxspeed = 5
+var maxspeed = 7
 
 func _input(_event):
 	if Input.is_action_just_pressed("Up"):
@@ -15,14 +15,14 @@ func _input(_event):
 			lane -= 1
 			$"../joueur".rotation = deg_to_rad(-15) 
 			vspeed = -4
-			$"./AudioStreamPlayer".play()
+			$"./Area2D/AudioStreamPlayer".play()
 	
 	if Input.is_action_just_pressed("Down"):
 		if lane != 5 and vspeed == 0:
 			lane += 1
 			$"../joueur".rotation = deg_to_rad(15) 
 			vspeed = 4
-			$"./AudioStreamPlayer".play()
+			$"./Area2D/AudioStreamPlayer".play()
 	
 	if Input.is_action_pressed("Accelerate"):
 		if hspeed < maxspeed:
@@ -57,4 +57,4 @@ func _process(_delta: float) -> void:
 	if $"../joueur".position.y == vgoal:
 		$"../joueur".rotation = 0
 		vspeed = 0
-	$"./AnimatedSprite2D".play()
+	$"./Area2D/AnimatedSprite2D".play()
