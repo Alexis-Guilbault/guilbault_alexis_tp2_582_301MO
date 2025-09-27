@@ -116,13 +116,6 @@ scale = Vector2(10, 4)
 position = Vector2(1154, 552.24)
 scale = Vector2(10, 4)
 
-[node name="But" parent="." instance=ExtResource("4_yapeh")]
-position = Vector2(11466, 456)
-scale = Vector2(3.742, 4.99)
-
-[node name="joueur" parent="." instance=ExtResource("1_xv5en")]
-position = Vector2(576, 415)
-
 [node name="epines" type="Node2D" parent="."]
 
 [node name="Epine" parent="epines" instance=ExtResource("5_1v4ti")]
@@ -250,5 +243,12 @@ position = Vector2(11232, 579)
 
 [node name="Epine40" parent="epines" instance=ExtResource("5_1v4ti")]
 position = Vector2(11224, 325)
+
+[node name="But" parent="." instance=ExtResource("4_yapeh")]
+position = Vector2(11466, 456)
+scale = Vector2(3.742, 4.99)
+
+[node name="joueur" parent="." instance=ExtResource("1_xv5en")]
+position = Vector2(576, 415)
 
 [node name="UiCourse" parent="." instance=ExtResource("2_s6bqy")]
