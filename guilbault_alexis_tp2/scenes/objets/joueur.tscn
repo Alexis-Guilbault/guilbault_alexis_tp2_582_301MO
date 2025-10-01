@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bntud7twsv0pf"]
+[gd_scene load_steps=12 format=3 uid="uid://bntud7twsv0pf"]
 
 [ext_resource type="Script" uid="uid://x4hlb2x2e4mr" path="res://scenes/objets/joueur.gd" id="1_lji0l"]
 [ext_resource type="Texture2D" uid="uid://ci0hjeys4j1y7" path="res://assets/images/bike_roll.png" id="1_r36ky"]
 [ext_resource type="AudioStream" uid="uid://cex3vp72gyha" path="res://assets/audio/sons/sfx_drive.mp3" id="3_6i1r8"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i1r8"]
-radius = 22.0
-height = 108.0
+[ext_resource type="AudioStream" uid="uid://yvd5mgolvwk4" path="res://assets/audio/sons/car_drive.mp3" id="3_14hfc"]
+[ext_resource type="AudioStream" uid="uid://d4lkia7e07jvx" path="res://assets/audio/sons/car_drive_loud.mp3" id="4_fmdwr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uj1k6"]
 atlas = ExtResource("1_r36ky")
@@ -44,32 +42,51 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i1r8"]
+radius = 17.0
+height = 94.0
+
 [node name="joueur" type="Node2D"]
 script = ExtResource("1_lji0l")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(10, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 11520
+limit_bottom = 648
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2.97996e-08, 25)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_6i1r8")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6i1r8")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_14hfc")
+parameters/looping = true
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_14hfc")
+parameters/looping = true
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fmdwr")
+parameters/looping = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3.8147e-06, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qqscv")
 frame = 1
 frame_progress = 0.243418
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
-stream = ExtResource("3_6i1r8")
+[node name="Area2D" type="Area2D" parent="." groups=["joueur"]]
 
-[node name="Camera2D" type="Camera2D" parent="Area2D"]
-scale = Vector2(10, 1)
-limit_left = 0
-limit_top = 0
-limit_right = 11520
-limit_bottom = 648
-position_smoothing_enabled = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.72316e-12, 29)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6i1r8")
 
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

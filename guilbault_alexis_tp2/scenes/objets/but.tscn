@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://0tfudcbdnais" path="res://scenes/objets/but.gd" id="1_1yex2"]
 [ext_resource type="Texture2D" uid="uid://dxe0n8thl7ial" path="res://assets/images/But.png" id="2_b6avo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6avo"]
-size = Vector2(64, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdk27"]
 atlas = ExtResource("2_b6avo")
 region = Rect2(0, 0, 16, 32)
@@ -21,16 +18,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6avo"]
+size = Vector2(64, 32)
+
 [node name="But" type="Node2D"]
 script = ExtResource("1_1yex2")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lipde")
+
+[node name="Area2D" type="Area2D" parent="." groups=["but"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-4.76837e-07, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_b6avo")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_lipde")

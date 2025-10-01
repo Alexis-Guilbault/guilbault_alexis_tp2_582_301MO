@@ -9,20 +9,33 @@ var vgoal = 0
 var hspeed = 0
 var maxspeed = 7
 
+var lap = 1
+
+var boostitem = false
+var boosttimer = 0
+
+enum States {
+	NORMAL,
+	OFFROAD,
+	BOOST
+}
+
+var speed_state = States.NORMAL
+
 func _input(_event):
-	if Input.is_action_just_pressed("Up"):
+	if Input.is_action_just_pressed("Up") && hspeed != 0:
 		if lane != 1 and vspeed == 0:
 			lane -= 1
 			$"../joueur".rotation = deg_to_rad(-15) 
 			vspeed = -4
-			$"./Area2D/AudioStreamPlayer".play()
+			$"./AudioStreamPlayer".play()
 	
-	if Input.is_action_just_pressed("Down"):
+	if Input.is_action_just_pressed("Down") && hspeed != 0:
 		if lane != 5 and vspeed == 0:
 			lane += 1
 			$"../joueur".rotation = deg_to_rad(15) 
 			vspeed = 4
-			$"./Area2D/AudioStreamPlayer".play()
+			$"./AudioStreamPlayer".play()
 	
 	if Input.is_action_pressed("Accelerate"):
 		if hspeed < maxspeed:
@@ -31,16 +44,59 @@ func _input(_event):
 	if Input.is_action_pressed("Deccelerate"):
 		if hspeed > 0:
 			hspeed -= 0.3
+	
+	if Input.is_action_pressed("Item") && boostitem == true:
+		print("BOOOOOSTTT !!!")
+		boosttimer = 90
+		boostitem = false
 
 func _process(_delta: float) -> void:
-	$"../joueur".position.y += vspeed
-	$"../joueur".position.x += hspeed
+	if lap == 4:
+		get_tree().change_scene_to_file("res://scenes/pieces/menu.tscn")
+	
+	if boosttimer != 0:
+		boosttimer -= 1
+		speed_state = States.BOOST
+	elif speed_state == States.BOOST:
+		print("Retour à la normale")
+		speed_state = States.NORMAL
+	
+	match speed_state:
+		States.NORMAL:
+			maxspeed = 7
+		States.OFFROAD:
+			maxspeed = 3
+		States.BOOST:
+			maxspeed = 20
+			hspeed = maxspeed
 	
 	if hspeed < 0:
 		hspeed = 0
 	
 	if hspeed > maxspeed:
 		hspeed = maxspeed
+	
+	if hspeed != 0:
+		$"./AnimatedSprite2D".speed_scale = hspeed/2
+		$"./AnimatedSprite2D".play()
+		if speed_state == States.NORMAL:
+			$"./AudioStreamPlayer2".play()
+		else:
+			$"./AudioStreamPlayer2".stop()
+		
+		if speed_state == States.OFFROAD:
+			$"./AudioStreamPlayer3".play()
+		else:
+			$"./AudioStreamPlayer3".stop()
+		
+		if speed_state == States.BOOST:
+			$"./AudioStreamPlayer4".play()
+		else:
+			$"./AudioStreamPlayer4".stop()
+	else:
+		$"./AudioStreamPlayer2".stop()
+		$"./AudioStreamPlayer3".stop()
+		$"./AudioStreamPlayer4".stop()
 	
 	match lane:
 		1:
@@ -57,4 +113,29 @@ func _process(_delta: float) -> void:
 	if $"../joueur".position.y == vgoal:
 		$"../joueur".rotation = 0
 		vspeed = 0
-	$"./Area2D/AnimatedSprite2D".play()
+	
+	$"../joueur".position.y += vspeed
+	$"../joueur".position.x += hspeed
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("epine"):
+		area.queue_free()
+		$"../joueur".position.x -= 16
+		hspeed = 0
+		boosttimer = 0
+		boostitem = false
+	if area.is_in_group("but"):
+		$"../joueur".position.x = 576
+		lap += 1
+		print(var_to_str(lap) + "/3")
+	if area.is_in_group("horspiste") && vspeed == 0 && speed_state == States.NORMAL:
+		print("Hors-piste !!!!")
+		speed_state = States.OFFROAD
+	if area.is_in_group("boost"):
+		print("Boost acquired")
+		boostitem = true
+
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("horspiste") && speed_state == States.OFFROAD:
+		print("Retour à la normale")
+		speed_state = States.NORMAL
