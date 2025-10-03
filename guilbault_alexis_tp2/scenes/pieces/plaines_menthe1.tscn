@@ -256,6 +256,13 @@ scale = Vector2(3.742, 4.99)
 [node name="joueur" parent="." instance=ExtResource("1_xv5en")]
 position = Vector2(576, 415)
 
+[node name="Camera2D2" type="Camera2D" parent="joueur"]
+scale = Vector2(10, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 11520
+limit_bottom = 648
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UiCourse" parent="CanvasLayer" instance=ExtResource("2_s6bqy")]

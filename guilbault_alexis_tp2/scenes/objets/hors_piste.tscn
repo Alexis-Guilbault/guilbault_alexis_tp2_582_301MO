@@ -18,7 +18,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h061o"]
-size = Vector2(28, 32)
+size = Vector2(26, 32)
 
 [node name="HorsPiste" type="Node2D"]
 

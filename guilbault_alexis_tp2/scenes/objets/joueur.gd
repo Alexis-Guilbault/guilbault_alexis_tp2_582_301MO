@@ -124,16 +124,33 @@ func _on_area_2d_area_entered(area):
 		hspeed = 0
 		boosttimer = 0
 		boostitem = false
+	
 	if area.is_in_group("but"):
 		$"../joueur".position.x = 576
 		lap += 1
 		print(var_to_str(lap) + "/3")
+	
 	if area.is_in_group("horspiste") && vspeed == 0 && speed_state == States.NORMAL:
 		print("Hors-piste !!!!")
 		speed_state = States.OFFROAD
+	
 	if area.is_in_group("boost"):
 		print("Boost acquired")
 		boostitem = true
+	
+	if area.is_in_group("crabe"):
+		area.queue_free()
+		$"../joueur".position.x -= 16
+		hspeed = 0
+		boosttimer = 0
+		boostitem = false
+	
+	if area.is_in_group("crochet"):
+		lane = 1
+		$"../joueur".position.y = 287
+		hspeed = 0
+		boosttimer = 0
+		boostitem = false
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("horspiste") && speed_state == States.OFFROAD:
