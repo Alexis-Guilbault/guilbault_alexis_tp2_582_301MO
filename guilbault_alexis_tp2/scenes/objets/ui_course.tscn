@@ -26,14 +26,6 @@ position = Vector2(1064, 600)
 layout_mode = 0
 offset_right = 325.0
 offset_bottom = 153.0
-text = "W ou Fléche haut : Monter
-S ou Flèche bas : Descendre
-A ou Flèche Gauche : Ralentir
-D ou Flèche Droite : Accelérer
-
-M Mettre en pause/continuer la musique
-
-Z ou Espace : Boost"
 label_settings = SubResource("LabelSettings_d7sl3")
 vertical_alignment = 3
 
@@ -60,6 +52,7 @@ vertical_alignment = 3
 script = ExtResource("3_d7sl3")
 
 [node name="boost" type="Label" parent="."]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 569.0
 offset_right = 326.0

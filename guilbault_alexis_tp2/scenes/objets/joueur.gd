@@ -8,11 +8,14 @@ var vgoal = 0
 
 var hspeed = 0
 var maxspeed = 7
+var minspeed = -7
 
 var lap = 1
 
 var boostitem = false
 var boosttimer = 0
+
+var rng = RandomNumberGenerator.new()
 
 enum States {
 	NORMAL,
@@ -42,18 +45,18 @@ func _input(_event):
 			hspeed += 0.2
 	
 	if Input.is_action_pressed("Deccelerate"):
-		if hspeed > 0:
+		if hspeed > minspeed:
 			hspeed -= 0.3
 	
 	if Input.is_action_pressed("Item") && boostitem == true:
 		print("BOOOOOSTTT !!!")
 		boosttimer = 90
 		boostitem = false
+	
+	if Input.is_action_pressed("Pause"):
+		get_tree().change_scene_to_file("res://scenes/pieces/menu.tscn")
 
 func _process(_delta: float) -> void:
-	if lap == 4:
-		get_tree().change_scene_to_file("res://scenes/pieces/menu.tscn")
-	
 	if boosttimer != 0:
 		boosttimer -= 1
 		speed_state = States.BOOST
@@ -70,8 +73,8 @@ func _process(_delta: float) -> void:
 			maxspeed = 20
 			hspeed = maxspeed
 	
-	if hspeed < 0:
-		hspeed = 0
+	if hspeed < minspeed:
+		hspeed = minspeed
 	
 	if hspeed > maxspeed:
 		hspeed = maxspeed
@@ -125,9 +128,15 @@ func _on_area_2d_area_entered(area):
 		boosttimer = 0
 		boostitem = false
 	
-	if area.is_in_group("but"):
+	if area.is_in_group("but") && hspeed >= 0:
 		$"../joueur".position.x = 576
 		lap += 1
+		print(var_to_str(lap) + "/3")
+		if lap == 4:
+			get_tree().change_scene_to_file("res://scenes/pieces/menu.tscn")
+	elif area.is_in_group("but"):
+		$"../joueur".position.x = 576
+		lap -= 1
 		print(var_to_str(lap) + "/3")
 	
 	if area.is_in_group("horspiste") && vspeed == 0 && speed_state == States.NORMAL:
@@ -151,6 +160,11 @@ func _on_area_2d_area_entered(area):
 		hspeed = 0
 		boosttimer = 0
 		boostitem = false
+	
+	if area.is_in_group("feuilles"):
+		area.queue_free()
+		if rng.randi_range(1,10) > 9:
+			boostitem = true
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("horspiste") && speed_state == States.OFFROAD:
