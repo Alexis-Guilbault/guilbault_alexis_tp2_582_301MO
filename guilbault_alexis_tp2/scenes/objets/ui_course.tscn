@@ -1,14 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://dce2q1d6u7ec"]
 
 [ext_resource type="PackedScene" uid="uid://dtkmuqas7cswb" path="res://scenes/objets/volume.tscn" id="1_d6yg6"]
-[ext_resource type="Script" uid="uid://befwneqi4tej1" path="res://scenes/objets/temps.gd" id="2_vjchr"]
-[ext_resource type="Script" uid="uid://l6e7342qjugl" path="res://scenes/objets/tours.gd" id="3_d7sl3"]
-[ext_resource type="Script" uid="uid://bn8cv626qr4q1" path="res://scenes/objets/texte_boost.gd" id="4_reri1"]
+[ext_resource type="Script" uid="uid://befwneqi4tej1" path="res://scripts/temps.gd" id="2_vjchr"]
+[ext_resource type="Script" uid="uid://l6e7342qjugl" path="res://scripts/tours.gd" id="3_d7sl3"]
+[ext_resource type="Script" uid="uid://bn8cv626qr4q1" path="res://scripts/texte_boost.gd" id="4_reri1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d7sl3"]
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_reri1"]
+font_size = 47
 font_color = Color(1, 0, 0, 1)
 
 [node name="UiCourse" type="Control"]
@@ -31,10 +32,9 @@ vertical_alignment = 3
 
 [node name="temps" type="Label" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 590.0
-offset_right = 327.0
-offset_bottom = 617.0
+offset_top = 528.0
+offset_right = 325.0
+offset_bottom = 593.0
 text = "Temps : "
 label_settings = SubResource("LabelSettings_reri1")
 vertical_alignment = 3
@@ -42,10 +42,9 @@ script = ExtResource("2_vjchr")
 
 [node name="tours" type="Label" parent="."]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 614.0
-offset_right = 329.0
-offset_bottom = 641.0
+offset_top = 584.0
+offset_right = 325.0
+offset_bottom = 649.0
 text = "Tours : 1/3"
 label_settings = SubResource("LabelSettings_reri1")
 vertical_alignment = 3
@@ -53,10 +52,9 @@ script = ExtResource("3_d7sl3")
 
 [node name="boost" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 569.0
-offset_right = 326.0
-offset_bottom = 596.0
+offset_top = 472.0
+offset_right = 325.0
+offset_bottom = 537.0
 text = "Boost (?)"
 label_settings = SubResource("LabelSettings_reri1")
 vertical_alignment = 3

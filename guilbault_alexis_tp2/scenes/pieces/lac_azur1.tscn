@@ -1,6 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://csbethk5kg4nc"]
+[gd_scene load_steps=16 format=3 uid="uid://csbethk5kg4nc"]
 
+[ext_resource type="Texture2D" uid="uid://cac0viiq1khkp" path="res://assets/images/sun.png" id="1_3ihvp"]
 [ext_resource type="Texture2D" uid="uid://b07l2l3sikflk" path="res://assets/images/floor_azur.png" id="1_xjk6u"]
+[ext_resource type="AudioStream" uid="uid://bmmwoe5wtscem" path="res://assets/audio/atmosphere/ambiance_vagues.mp3" id="2_2o42i"]
+[ext_resource type="Texture2D" uid="uid://bu4qpp1k4ppbw" path="res://assets/images/boat.png" id="2_t7ho8"]
 [ext_resource type="PackedScene" uid="uid://cjtrykxram8m" path="res://scenes/objets/hors_piste.tscn" id="2_vayh8"]
 [ext_resource type="PackedScene" uid="uid://ci40te88fd7uq" path="res://scenes/objets/but.tscn" id="4_3ihvp"]
 [ext_resource type="PackedScene" uid="uid://b4ygwlw8oatj7" path="res://scenes/objets/crab.tscn" id="4_hroaj"]
@@ -8,6 +11,28 @@
 [ext_resource type="PackedScene" uid="uid://dce2q1d6u7ec" path="res://scenes/objets/ui_course.tscn" id="6_2o42i"]
 [ext_resource type="PackedScene" uid="uid://g7ywuwe5papo" path="res://scenes/objets/boost.tscn" id="7_crb17"]
 [ext_resource type="PackedScene" uid="uid://dgcwa5l572jqd" path="res://scenes/objets/fishhook.tscn" id="8_vayh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o42i"]
+atlas = ExtResource("2_t7ho8")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crb17"]
+atlas = ExtResource("2_t7ho8")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4hd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o42i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crb17")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1v4ti"]
 animations = [{
@@ -23,13 +48,60 @@ animations = [{
 [node name="game" type="Node2D"]
 metadata/_edit_vertical_guides_ = [13824.0, 13825.0]
 
-[node name="ciel" type="Polygon2D" parent="."]
-scale = Vector2(12, 0.457)
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ciel" type="Polygon2D" parent="Background"]
+scale = Vector2(12.0083, 0.359741)
+color = Color(1, 0.466667, 0, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+uv = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="Sun" type="Sprite2D" parent="Background/ciel"]
+position = Vector2(565.611, 622.67)
+scale = Vector2(0.41638, 13.8989)
+texture = ExtResource("1_3ihvp")
+
+[node name="eau" type="Polygon2D" parent="Background"]
+position = Vector2(0, 233)
+scale = Vector2(12, 0.097)
 color = Color(0, 0.498039, 1, 1)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 uv = PackedVector2Array(0, 0, 1152, 0, 1152, 648, 0, 648)
 
-[node name="sol" type="Polygon2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Background/eau"]
+position = Vector2(566, 319.588)
+stream = ExtResource("2_2o42i")
+volume_db = 5.429
+autoplay = true
+max_distance = 2435.0
+attenuation = 0.249999
+parameters/looping = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(1360, 256)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u4hd4")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(3728, 264)
+scale = Vector2(-3, 3)
+sprite_frames = SubResource("SpriteFrames_u4hd4")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(9456, 256)
+scale = Vector2(-3, 3)
+sprite_frames = SubResource("SpriteFrames_u4hd4")
+autoplay = "default"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(12216, 272)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_u4hd4")
+autoplay = "default"
+
+[node name="sol" type="Polygon2D" parent="Background"]
 scale = Vector2(12, 1)
 color = Color(0.999999, 0.933283, 0.570152, 1)
 polygon = PackedVector2Array(0, 296, 1064.02, 296, 1152, 296, 1152, 461.787, 1152, 648, 0, 648)

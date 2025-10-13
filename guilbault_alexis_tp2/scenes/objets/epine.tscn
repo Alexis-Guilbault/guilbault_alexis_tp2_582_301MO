@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cabfylvy3du7u"]
+[gd_scene load_steps=5 format=3 uid="uid://cabfylvy3du7u"]
 
 [ext_resource type="Texture2D" uid="uid://demudcrntjx5c" path="res://assets/images/epine.png" id="1_spgan"]
-[ext_resource type="Script" uid="uid://cpxwbvdwbh8v5" path="res://scenes/objets/epine.gd" id="1_tcrvm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcrvm"]
 atlas = ExtResource("1_spgan")
@@ -23,7 +22,6 @@ radius = 17.0
 height = 54.0
 
 [node name="Epine" type="Node2D"]
-script = ExtResource("1_tcrvm")
 
 [node name="Area2D" type="Area2D" parent="." groups=["epine"]]
 

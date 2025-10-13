@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci40te88fd7uq"]
+[gd_scene load_steps=5 format=3 uid="uid://ci40te88fd7uq"]
 
-[ext_resource type="Script" uid="uid://0tfudcbdnais" path="res://scenes/objets/but.gd" id="1_1yex2"]
 [ext_resource type="Texture2D" uid="uid://dxe0n8thl7ial" path="res://assets/images/But.png" id="2_b6avo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdk27"]
@@ -22,7 +21,6 @@ animations = [{
 size = Vector2(64, 32)
 
 [node name="But" type="Node2D"]
-script = ExtResource("1_1yex2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)

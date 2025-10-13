@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://wlnewopm1g5h"]
+[gd_scene load_steps=6 format=3 uid="uid://wlnewopm1g5h"]
 
 [ext_resource type="Texture2D" uid="uid://chrddvogak61c" path="res://assets/images/logo.png" id="1_q0o5e"]
-[ext_resource type="Script" uid="uid://dat6a2avqbee2" path="res://scenes/pieces/menu.gd" id="2_s1y71"]
+[ext_resource type="Script" uid="uid://dat6a2avqbee2" path="res://scripts/menu.gd" id="2_s1y71"]
+[ext_resource type="AudioStream" uid="uid://dbsmpn4xvi1xo" path="res://assets/audio/sons/selection.mp3" id="3_fasuj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s1y71"]
 animations = [{
@@ -40,3 +41,6 @@ label_settings = SubResource("LabelSettings_fasuj")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_s1y71")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Label"]
+stream = ExtResource("3_fasuj")

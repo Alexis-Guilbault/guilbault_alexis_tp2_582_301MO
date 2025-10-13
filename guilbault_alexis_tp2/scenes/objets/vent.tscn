@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnt58nvnh6bua"]
+[gd_scene load_steps=7 format=3 uid="uid://dnt58nvnh6bua"]
 
-[ext_resource type="Script" uid="uid://bv51kg40es2pi" path="res://scenes/objets/vent.gd" id="1_d5dlv"]
 [ext_resource type="Texture2D" uid="uid://dw5wuhpnc6ndw" path="res://assets/images/wind.png" id="2_n3var"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hwl05"]
@@ -36,7 +35,6 @@ animations = [{
 size = Vector2(28, 26)
 
 [node name="Vent" type="Node2D" groups=["vent"]]
-script = ExtResource("1_d5dlv")
 
 [node name="Area2D" type="Area2D" parent="."]
 

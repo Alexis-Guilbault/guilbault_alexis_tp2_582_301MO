@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgcwa5l572jqd"]
+[gd_scene load_steps=4 format=3 uid="uid://dgcwa5l572jqd"]
 
-[ext_resource type="Script" uid="uid://g65jhw0dqee0" path="res://scenes/objets/fishhook.gd" id="1_ahe21"]
 [ext_resource type="Texture2D" uid="uid://bqkgfh8nsd508" path="res://assets/images/fishhook.png" id="2_powtm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pyx14"]
@@ -19,7 +18,6 @@ animations = [{
 }]
 
 [node name="Fishhook" type="Node2D"]
-script = ExtResource("1_ahe21")
 
 [node name="Area2D" type="Area2D" parent="." groups=["crochet"]]
 
